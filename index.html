@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Survey</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <section id='thankyou-page' class="relative" style="display: none;">
+      <div class="w-full h-full fixed bg-white flex">
+        <div class="m-auto title-font tracking-wider text-gray-800 text-4xl font-hairline text-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="w-10 h-10 rounded-full p-2 bg-green-600 text-white inline-block" viewBox="0 0 24 24">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+          Thank you for submitting your feedback for <span id='thank-you-course-name'></span>!
+        </div>
+      </div>
+      <div class="fixed bottom-0 w-full">
+        <footer class="text-gray-700 body-font bottom-0">
+          <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+              <span class="ml-3 text-xl">Feedback Survey</span>
+            </a>
+            <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Internal Associates Training Program 2020 —
+              <a href="#" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@QACOE</a>
+            </p>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <section class="text-gray-700 body-font">
+        <div class="container mx-auto flex px-5 pt-10 pb-24 items-center justify-center flex-col">
+          <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+          <div class="text-center lg:w-2/3 w-full">
+            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><span id="course_name"></span> Feedback Survey</h1>
+            <p class="mb-8 leading-relaxed">Please take few moments to complete this survey</p>
+          </div>
+          <div class="lg:w-1/2 w-full mx-auto overflow-auto">
+            <table class="table-auto w-full text-left whitespace-no-wrap border">
+              <tbody>
+                <tr>
+                    <td class="px-4 py-3 tracking-wider font-medium text-sm bg-gray-300 text-gray-900 border">Course Name</td>
+                    <td class="px-4 py-3 border"><span id="course_name_table"></span></td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-3 tracking-wider font-medium text-sm bg-gray-300 text-gray-900 border">Webinar Date</td>
+                    <td class="px-4 py-3 border"><span id="course_date"></span></td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-3 tracking-wider font-medium text-sm bg-gray-300 text-gray-900 border">Trainer Name</td>
+                    <td class="px-4 py-3 border"><span id="course_trainers"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class='w-full lg:w-1/3 px-10 py-5 bg-red-200 mx-auto mb-10 rounded text-gray-700 font-medium tracking-wider text-center mt-10' id='error-msgs'>All questions are mandatory</div>
+          <div class="w-full mx-auto overflow-auto mt-10">
+            <table class="table-auto w-full text-left whitespace-no-wrap">
+              <tbody>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">The objectives of the training were clearly defined</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_1_1">
+                      <input type="radio" name="qn_1" id="qn_1_1" value="qn_1_1">
+                      Strongly agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_1_2">
+                      <input type="radio" name="qn_1" id="qn_1_2" value="qn_1_2">
+                      Agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_1_3">
+                      <input type="radio" name="qn_1" id="qn_1_3" value="qn_1_3">
+                      Neutral
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_1_4">
+                      <input type="radio" name="qn_1" id="qn_1_4" value="qn_1_4">
+                      Disagree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900 pr-0">
+                    <label for="qn_1_5">
+                      <input type="radio" name="qn_1" id="qn_1_5" value="qn_1_5">
+                      Strongly disagree
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">Participation and Interaction was encouraged</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_2_1">
+                      <input type="radio" name="qn_2" id="qn_2_1" value="qn_2_1">
+                      Strongly agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_2_2">
+                      <input type="radio" name="qn_2" id="qn_2_2" value="qn_2_2">
+                      Agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_2_3">
+                      <input type="radio" name="qn_2" id="qn_2_3" value="qn_2_3">
+                      Neutral
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_2_4">
+                      <input type="radio" name="qn_2" id="qn_2_4" value="qn_2_4">
+                      Disagree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900 pr-0">
+                    <label for="qn_2_5">
+                      <input type="radio" name="qn_2" id="qn_2_5" value="qn_2_5">
+                      Strongly disagree
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">The topics covered were relevant to me</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_3_1">
+                      <input type="radio" name="qn_3" id="qn_3_1" value="qn_3_1">
+                      Strongly agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_3_2">
+                      <input type="radio" name="qn_3" id="qn_3_2" value="qn_3_2">
+                      Agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_3_3">
+                      <input type="radio" name="qn_3" id="qn_3_3" value="qn_3_3">
+                      Neutral
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_3_4">
+                      <input type="radio" name="qn_3" id="qn_3_4" value="qn_3_4">
+                      Disagree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900 pr-0">
+                    <label for="qn_3_5">
+                      <input type="radio" name="qn_3" id="qn_3_5" value="qn_3_5">
+                      Strongly disagree
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">The content was organized and easy to follow</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_4_1">
+                      <input type="radio" name="qn_4" id="qn_4_1" value="qn_4_1">
+                      Strongly agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_4_2">
+                      <input type="radio" name="qn_4" id="qn_4_2" value="qn_4_2">
+                      Agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_4_3">
+                      <input type="radio" name="qn_4" id="qn_4_3" value="qn_4_3">
+                      Neutral
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_4_4">
+                      <input type="radio" name="qn_4" id="qn_4_4" value="qn_4_4">
+                      Disagree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900 pr-0">
+                    <label for="qn_4_5">
+                      <input type="radio" name="qn_4" id="qn_4_5" value="qn_4_5">
+                      Strongly disagree
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">The materials distributed were helpful</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_5_1">
+                      <input type="radio" name="qn_5" id="qn_5_1" value="qn_5_1">
+                      Strongly agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_5_2">
+                      <input type="radio" name="qn_5" id="qn_5_2" value="qn_5_2">
+                      Agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_5_3">
+                      <input type="radio" name="qn_5" id="qn_5_3" value="qn_5_3">
+                      Neutral
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_5_4">
+                      <input type="radio" name="qn_5" id="qn_5_4" value="qn_5_4">
+                      Disagree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900 pr-0">
+                    <label for="qn_5_5">
+                      <input type="radio" name="qn_5" id="qn_5_5" value="qn_5_5">
+                      Strongly disagree
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">The training experience will be usefull in my work</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_6_1">
+                      <input type="radio" name="qn_6" id="qn_6_1" value="qn_6_1">
+                      Strongly agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_6_2">
+                      <input type="radio" name="qn_6" id="qn_6_2" value="qn_6_2">
+                      Agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_6_3">
+                      <input type="radio" name="qn_6" id="qn_6_3" value="qn_6_3">
+                      Neutral
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_6_4">
+                      <input type="radio" name="qn_6" id="qn_6_4" value="qn_6_4">
+                      Disagree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900 pr-0">
+                    <label for="qn_6_5">
+                      <input type="radio" name="qn_6" id="qn_6_5" value="qn_6_5">
+                      Strongly disagree
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">The trainer was knowledgeable about the training topics</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_7_1">
+                      <input type="radio" name="qn_7" id="qn_7_1" value="qn_7_1">
+                      Strongly agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_7_2">
+                      <input type="radio" name="qn_7" id="qn_7_2" value="qn_7_2">
+                      Agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_7_3">
+                      <input type="radio" name="qn_7" id="qn_7_3" value="qn_7_3">
+                      Neutral
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_7_4">
+                      <input type="radio" name="qn_7" id="qn_7_4" value="qn_7_4">
+                      Disagree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900 pr-0">
+                    <label for="qn_7_5">
+                      <input type="radio" name="qn_7" id="qn_7_5" value="qn_7_5">
+                      Strongly disagree
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">The trainer was well prepared</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_8_1">
+                      <input type="radio" name="qn_8" id="qn_8_1" value="qn_8_1">
+                      Strongly agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_8_2">
+                      <input type="radio" name="qn_8" id="qn_8_2" value="qn_8_2">
+                      Agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_8_3">
+                      <input type="radio" name="qn_8" id="qn_8_3" value="qn_8_3">
+                      Neutral
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_8_4">
+                      <input type="radio" name="qn_8" id="qn_8_4" value="qn_8_4">
+                      Disagree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900 pr-0">
+                    <label for="qn_8_5">
+                      <input type="radio" name="qn_8" id="qn_8_5" value="qn_8_5">
+                      Strongly disagree
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">The training objectives were met</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_9_1">
+                      <input type="radio" name="qn_9" id="qn_9_1" value="qn_9_1">
+                      Strongly agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_9_2">
+                      <input type="radio" name="qn_9" id="qn_9_2" value="qn_9_2">
+                      Agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_9_3">
+                      <input type="radio" name="qn_9" id="qn_9_3" value="qn_9_3">
+                      Neutral
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_9_4">
+                      <input type="radio" name="qn_9" id="qn_9_4" value="qn_9_4">
+                      Disagree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900 pr-0">
+                    <label for="qn_9_5">
+                      <input type="radio" name="qn_9" id="qn_9_5" value="qn_9_5">
+                      Strongly disagree
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">The time alloted for training was sufficient</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_10_1">
+                      <input type="radio" name="qn_10" id="qn_10_1" value="qn_10_1">
+                      Strongly agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_10_2">
+                      <input type="radio" name="qn_10" id="qn_10_2" value="qn_10_2">
+                      Agree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_10_3">
+                      <input type="radio" name="qn_10" id="qn_10_3" value="qn_10_3">
+                      Neutral
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">
+                    <label for="qn_10_4">
+                      <input type="radio" name="qn_10" id="qn_10_4" value="qn_10_4">
+                      Disagree
+                    </label>
+                  </td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900 pr-0">
+                    <label for="qn_10_5">
+                      <input type="radio" name="qn_10" id="qn_10_5" value="qn_10_5">
+                      Strongly disagree
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900">Do you have any other questions, concerns or comments?</td>
+                  <td class="px-4 py-3 tracking-wider font-medium text-sm text-gray-900" colspan="5">
+                    <textarea name="additional_comments" id="additional_comments" class='w-full border p-5'></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="6" class="px-4 py-3 font-medium text-sm text-gray-900 tracking-wider text-center">
+                    <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" id="submit_button">Submit Feedback Form</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </section>
+    <footer class="text-gray-700 body-font">
+      <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+          <span class="ml-3 text-xl">Feedback Survey</span>
+        </a>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Internal Associates Training Program 2020 —
+          <a href="#" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@QACOE</a>
+        </p>
+      </div>
+    </footer>
+    <script src="./js/feedback.js"></script>
+</body>
+</html>

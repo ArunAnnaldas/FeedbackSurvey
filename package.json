@@ -1,0 +1,17 @@
+{
+  "name": "feedback-survey",
+  "version": "1.0.0",
+  "description": "Feedback Survey Form",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js runtime=local"
+  },
+  "author": "Akhil Arjun",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "edit-json-file": "^1.4.0",
+    "express": "^4.17.1"
+  }
+}
